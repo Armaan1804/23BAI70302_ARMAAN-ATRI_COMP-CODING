@@ -1,0 +1,36 @@
+import sys
+sys.setrecursionlimit(10**7)
+
+def solve():
+    n = int(input()) 
+    tokens = input().split()
+    
+    i = 0
+
+    def parse():
+        nonlocal i
+        if i >= len(tokens):
+            return None
+        
+        if tokens[i] == "pair":
+            i += 1
+            left = parse()
+            right = parse()
+            
+            if left is None or right is None:
+                return None
+            
+            return f"pair<{left},{right}>"
+        else:
+            val = tokens[i]
+            i += 1
+            return val
+
+    res = parse()
+    
+    if res is None or i != len(tokens):
+        print("Error occurred")
+    else:
+        print(res)
+
+solve()
