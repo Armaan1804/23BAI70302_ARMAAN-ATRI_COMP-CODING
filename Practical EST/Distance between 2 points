@@ -1,0 +1,22 @@
+#User function Template for python3
+import math
+class Solution:
+	def distance(self, x1, y1, x2, y2):
+		# Code here
+		distance = math.sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2-y1))
+		result1 = math.floor(distance)
+		result2 = math.ceil(distance)
+		
+		abs1 = abs(result1 - distance)
+		abs2 = abs(result2 - distance)
+		print(abs1)
+		print(abs2)
+		print(result1)
+		print(result2)
+		
+		
+		if abs1 < abs2:
+		    return result1
+		else:
+		    return result2
+	    
